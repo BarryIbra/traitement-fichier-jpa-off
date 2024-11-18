@@ -25,9 +25,10 @@ public class Categorie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
     private int id;
-    
+
     @Column(name = "NOM", nullable = false, unique = true)
     private String nom;
+    
 
     /**
      * Constructeurs de la classe Categorie utilisé par JPA
@@ -43,6 +44,16 @@ public class Categorie {
 
     public Categorie(String nom) {
         this.nom = nom;
+    }
+    
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    
+
+    public String getNom() {
+        return nom;
     }
 
     /**

@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "INGREDIENT")
-public class Ingredient {
+public class Ingredient implements IngredientBase {
 
     /**
      * Attributs de la classe Ingredient
@@ -28,7 +28,7 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
     private int id;
-    @Column(name = "NOM", nullable = false, unique = true)
+    @Column(name = "NOM", nullable = false, unique = true )
     private String nom;
 
     /**
@@ -45,6 +45,17 @@ public class Ingredient {
 
     public Ingredient(String nom) {
         this.nom = nom;
+    }
+
+    
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    
+
+    public String getNom() {
+        return nom;
     }
 
     /**

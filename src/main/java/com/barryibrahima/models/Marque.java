@@ -1,10 +1,13 @@
 package com.barryibrahima.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 /**
@@ -32,6 +35,9 @@ public class Marque {
     @Column(name = "NOM",nullable = false,unique = true)
     private String nom;
 
+    @OneToMany(mappedBy = "marque")
+    private List<Produit> produits;
+
     /**
      * Constructeurs de la classe Marque utilisé par JPA
      */
@@ -47,6 +53,17 @@ public class Marque {
         this.nom = nom;
     }
 
+    
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    
+
+    public String getNom() {
+        return nom;
+    }
+
     /**
      * Méthode toString de la classe Marque
      * @return : une chaîne de caractères
@@ -54,6 +71,10 @@ public class Marque {
 
     public String toString() {
         return "Marque [id=" + id + ", nom=" + nom + "]";
+    }
+
+    public List<Produit> getProduits() {
+        return produits;
     }
 
 }
